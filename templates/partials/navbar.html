@@ -1,10 +1,10 @@
-{%load static%}
+{% load static %}
 <div class="header-top">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-12 col-lg-6 d-flex">
           <a href="index.html" class="site-logo">
-            Meranda
+            News Portal
           </a>
 
           <a href="#" class="ml-auto d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
@@ -47,29 +47,15 @@
               <li class="active">
                 <a href="index.html" class="nav-link text-left">Home</a>
               </li>
+              {% for cat in category %}
               <li>
-                <a href="categories.html" class="nav-link text-left">Categories</a>
+                <a href="categories.html" class="nav-link text-left">{{ cat.name }}</a>
               </li>
-              <li>
-                <a href="categories.html" class="nav-link text-left">Politics</a>
-              </li>
-              <li>
-                <a href="categories.html" class="nav-link text-left">Business</a>
-              </li>
-              <li>
-                  <a href="categories.html" class="nav-link text-left">Health</a>
-              </li>
-              <li><a href="categories.html" class="nav-link text-left">Design</a></li>
-              <li>
-                <a href="categories.html" class="nav-link text-left">Sport</a>
-              </li>
+              {% endfor %}
               <li><a href="contact.html" class="nav-link text-left">Contact</a></li>
             </ul>                                                                                                                                                                                                                                                                                         
           </nav>
-
         </div>
-       
       </div>
     </div>
-
   </div>
