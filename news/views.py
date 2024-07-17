@@ -1,10 +1,22 @@
 from django.shortcuts import render
 from news.models import News
 
-# Create your views here.
+"""
+home page
+"""
 def home_page(request):
-    news = News.objects.all()
-    context ={
-        "news":news,
+    context = {
+        "news":"",
     }
     return render(request,'index.html', context)
+
+
+
+"""
+contact us page
+"""
+def contact_us(request):
+    context = {
+        "from": "", # 
+    }
+    return render(request, "contactus.html", context)
