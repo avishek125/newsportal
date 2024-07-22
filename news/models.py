@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 class Category(models.Model):
     name = models.CharField(max_length=255)
@@ -20,6 +21,7 @@ class News(models.Model):
     description = models.TextField()
     is_editorial =  models.BooleanField(default=False)
     views_count = models.PositiveIntegerField(default=0)
+    posted_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True, related_name="newsrepoter")
     created_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
 
