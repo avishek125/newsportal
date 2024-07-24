@@ -49,7 +49,7 @@
               </li>
               {% for cat in category %}
               <li>
-                <a href="categories.html" class="nav-link text-left">{{ cat.name }}</a>
+                <a href="{% url "category" cat.id %}" class="nav-link text-left">{{ cat.name }}</a>
               </li>
               {% endfor %}
               <li><a href="{% url "contact_us" %}" class="nav-link text-left">Contact</a></li>
