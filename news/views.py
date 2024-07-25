@@ -34,6 +34,18 @@ def category(request, category_id):
     }
     return render(request, "category.html", context)
 
+""" 
+news detail page
+"""
+def detail_news(request, news_id):
+    detail_news = News.objects.get(id=news_id)
+    context = {
+        "detail_news":detail_news,
+    }
+    return render(request, "details.html", context)
+
+
+
 
 
 

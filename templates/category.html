@@ -16,7 +16,7 @@
         <div class="post-entry-2 d-flex">
           <div class="thumbnail order-md-2" style="background-image: url('{{news.image.url}}')"></div>
           <div class="contents order-md-1 pl-0">
-            <h2><a href="blog-single.html">{{news.title}}</a></h2>
+            <h2><a href="{% url "detailnews" news.id %}">{{news.title}}</a></h2>
             <p class="mb-3">{{news.description|slice:":400"}}</p>
             <div class="post-meta">
               <span class="d-block"><a href="#">{{news.posted_by.first_name}} {{news.posted_by.last_name }}</a> | <a href="#">{{news.category.name}}</a></span>
