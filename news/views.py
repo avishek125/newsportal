@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from news.models import News, Category
+from django.shortcuts import render, redirect
+from news.models import News, Category, Subscribe
+from news.forms import ContactUsForm, SubscribeForm
 
 """
 home page
@@ -39,6 +40,8 @@ news detail page
 """
 def detail_news(request, news_id):
     detail_news = News.objects.get(id=news_id)
+    detail_news.views_count += 1
+    detail_news.save()
     context = {
         "detail_news":detail_news,
     }
@@ -53,7 +56,25 @@ def detail_news(request, news_id):
 contact us page
 """
 def contact_us(request):
-    context = {
-        "from": "", # 
-    }
-    return render(request, "contactus.html", context)
+    form = ContactUsForm(request.POST or None)
+    if form.is_valid():
+         form.save()
+    else:
+         print(form.errors)
+    return render(request, "contact.html")
+
+"""
+Subcribe  
+"""
+def subcribe(request):
+    print("this funcation is called.....")
+    form = SubscribeForm(request.POST or None)
+    try:
+        if form.is_valid():
+            form.save()
+            return redirect("home_page")
+        else:
+            return redirect("home_page")
+    except Exception as e:
+        return redirect("home_page")
+    return(request, "partials/footer.html")

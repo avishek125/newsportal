@@ -20,8 +20,7 @@
                 <img src="/static/images/person_1.jpg" alt="Image" class="img-fluidid">
             </div>
             <div class="vcard">
-                <span class="d-block"><a href="#">{{ detail_news.posted_by.first_name}} {{ detail_news.posted_by.last_name}}</a> | <a href="#">{{detail_news.category.name}}</a></span>
-                <span class="date-read">{{detail_news.created_date|date:"d b Y"}}</span>
+                <span class="d-block"><a href="#">{{ detail_news.posted_by.first_name}} {{ detail_news.posted_by.last_name}}</a> | <a href="#">{{detail_news.category.name}}</a> | {{detail_news.views_count}}</span>   
             </div>
             </div>
             <p>{{detail_news.description}}</p>
