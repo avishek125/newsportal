@@ -73,7 +73,23 @@ class Subscribe(models.Model):
 
     class Meta:
         verbose_name = "Subscribe"
-        verbose_name_plural = "Contact Us"\
+        verbose_name_plural = "Subscribe"
+
+
+"""
+social media
+"""
+class SocialMedia(models.Model):
+    facebook = models.URLField()
+    twitter = models.URLField()
+    instagram = models.URLField()
+
+    def __str__(self):
+        return "Social Media"
+
+    class Meta:
+        verbose_name = "SocialMedia"
+        verbose_name_plural = "SocialMedia"
 
 """
 Subscribe model

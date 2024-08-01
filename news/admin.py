@@ -1,5 +1,5 @@
 from django.contrib import admin
-from news.models import News, Category, ContactUs, Subscribe
+from news.models import News, Category, ContactUs, Subscribe, SocialMedia
 
 """
 this lines of codes are used to register class model into admin pannel
@@ -42,3 +42,7 @@ class ContactUsAdmin(admin.ModelAdmin):
 
     def has_change_permission(self, request, obj=None):
         return False
+    
+    @admin.register(SocialMedia)
+    class SocialMediaAdmin(admin.ModelAdmin):
+        list_display=['facebook','twitter','instagram']
