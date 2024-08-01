@@ -78,3 +78,17 @@ def subcribe(request):
     except Exception as e:
         return redirect("home_page")
     return(request, "partials/footer.html")
+
+"""
+search filed 
+"""
+def search(request):
+    if request.method == "GET":
+        query = request.GET["query"]
+        search_data = News.objects.filter(title__contains=query)
+        data = {
+            'search_data':search_data,
+        }
+    else:
+        return redirect("homepage")
+    return render(request, "search.html", data)
