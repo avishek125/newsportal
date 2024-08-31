@@ -1,5 +1,9 @@
 {% extends "partials/layout.html" %}
 
+{% block title %}
+Contact us
+{% endblock title %}
+
 {% block navbar %}
 {% include "partials/navbar.html" %}
 {% endblock navbar %}
@@ -41,14 +45,16 @@
                         <textarea name="feedback_message" id="message" cols="30" rows="10" class="form-control"></textarea>
                     </div>
                 </div>
-
                 <div class="row">
                     <div class="col-12">
                         <input type="submit" value="Send Message" class="btn btn-primary py-3 px-5">
                     </div>
-                </div>
-                
+                </div>              
             </form>
+            <hr>
+            <div class="login">
+                <p class="text-center mt-5" style="font-size:20px;">Are you a reporter ? if yes <a href="{% url "login_page" %}">login here</a></p>
+            </div>
         </div>
 
       </div>

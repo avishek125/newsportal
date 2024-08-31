@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from news.models import News, Category, Subscribe
 from news.forms import ContactUsForm, SubscribeForm
+from django.contrib.auth.decorators import login_required
 
 """
 home page
@@ -17,13 +18,13 @@ def home_page(request):
         }
     context = {
         "editorial":editorial_news,
-         "trending_news": trending_news,
-         "popular_news":popular_news,
-         "recent_news":recent_news,
-         "editor_picks":editor_picks, 
-         "category_news":category_news,      
+        "trending_news":trending_news,
+        "popular_news":popular_news,
+        "recent_news":recent_news,
+        "editor_picks":editor_picks, 
+        "category_news":category_news,      
     }
-    return render(request,'index.html', context)
+    return render(request, "index.html", context)
 
 """
 category pages
@@ -92,3 +93,14 @@ def search(request):
     else:
         return redirect("homepage")
     return render(request, "search.html", data)
+
+"""
+repoter news list page
+"""
+@login_required(login_url='home_page')
+def news_list(request):
+    news = News.objects.filter(posted_by=request.user)
+    context = {
+        "news":news,
+    }
+    return render(request, "repoter/news/list.html", context)
